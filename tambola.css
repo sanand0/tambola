@@ -1,0 +1,75 @@
+:root {
+  --size: 40vh;
+  --text-size: 5vh;
+}
+* {
+  box-sizing: border-box;
+}
+body, html {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.root {
+  padding: 0 0.5rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.heading {
+  font-size: 6vh;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.heading .brand { margin: 0.5rem auto 0 0; }
+.heading .title { text-align: center; }
+.heading .logo { margin: 0.5rem 0 0 auto; }
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  grid-template-rows: repeat(9, auto);
+  flex-grow: 1;
+}
+.board .cell {
+  color: transparent;
+  background-color: #ffa;
+  border: 1px solid rgba(0,0,0,.4);
+  display: flex;
+}
+.board .cell .text {
+  margin: auto;
+  font-size: var(--text-size);
+}
+.open.board { background-color: #ccc; }
+.open.board .marked.cell { color: black; background-color: #fff; }
+.controls {
+  display: flex;
+}
+.controls .action {
+  font-size: calc(var(--text-size) * 0.7);
+  margin: 0.5rem auto;
+  padding: 0.5rem;
+  flex-grow: 1;
+}
+.number {
+  position: absolute;
+  left: calc(50% - var(--size) / 2);
+  top: calc(50vh - var(--size) / 2);
+  width: var(--size);
+  height: var(--size);
+  font-size: calc(var(--size) * 0.6);
+  text-align: center;
+  background-color: rgba(0,0,0,.8);
+  color: white;
+  border-radius: var(--size);
+  border: 3px solid white;
+  transition: all 0.5s ease;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.fadein {
+  opacity: 1;
+}

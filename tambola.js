@@ -11,9 +11,13 @@ let $numberval = q('.number .value')
 let index = 0
 let fade
 let next = () => {
-  index++
-  $numberval.innerHTML = seq[index] + 1
-  q('.cell-' + seq[index]).classList.add('marked')
+  if (index >= seq.length) {
+    $numberval.innerHTML = '-'
+  } else {
+    $numberval.innerHTML = seq[index] + 1
+    q('.cell-' + seq[index]).classList.add('marked')
+    index++
+  }
   $number.classList.add('fadein')
   if (fade)
     fade = clearTimeout(fade)
